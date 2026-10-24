@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10152b">
+<title>Zuriyya AI — Your everyday AI assistant</title>
+<style>
+:root{--bg:#0b1020;--panel:#141b32;--panel2:#1b2440;--text:#f4f6ff;--muted:#aab4d0;--accent:#8b7cff;--accent2:#52d6b5;--line:#2b3556}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#20264c 0,#0b1020 55%);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px max(18px,calc((100vw - 1080px)/2));border-bottom:1px solid #ffffff15;position:sticky;top:0;background:#0b1020eF;backdrop-filter:blur(12px);z-index:2}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}.logo{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#0b1020;font-size:20px;font-weight:900}.pill{border:1px solid #4c5678;color:#cdd4ec;border-radius:99px;padding:7px 11px;font-size:12px}
+main{max-width:1080px;margin:auto;padding:34px 18px 60px}.hero{max-width:750px;margin:0 auto 28px;text-align:center}.eyebrow{color:var(--accent2);font-size:12px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(32px,7vw,58px);line-height:1.05;margin:12px 0}.gradient{background:linear-gradient(90deg,#b9b0ff,#67e7c5);color:transparent;background-clip:text}.hero p{color:var(--muted);line-height:1.6;font-size:16px;margin:0 auto;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.tool{background:linear-gradient(180deg,#19213c,#131a30);border:1px solid var(--line);border-radius:18px;padding:17px;text-align:left;cursor:pointer;color:var(--text);min-height:126px;transition:.15s}.tool:hover,.tool.active{border-color:var(--accent);transform:translateY(-2px);background:#202747}.tool .emoji{font-size:24px}.tool h3{margin:10px 0 5px;font-size:16px}.tool p{margin:0;color:var(--muted);font-size:12px;line-height:1.4}
+.workspace{background:#121a30;border:1px solid var(--line);border-radius:24px;padding:20px;max-width:820px;margin:0 auto;box-shadow:0 20px 60px #0003}.workspace h2{margin:0 0 6px;font-size:22px}.hint{color:var(--muted);font-size:13px;margin:0 0 16px}.fieldlabel{display:block;font-size:13px;font-weight:700;margin:12px 0 8px}textarea,select,input{width:100%;background:#0b1124;border:1px solid #303b5e;border-radius:13px;color:var(--text);padding:13px;font:inherit;outline:none}textarea{min-height:120px;resize:vertical}textarea:focus,select:focus{border-color:var(--accent)}.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}.primary{border:0;background:linear-gradient(90deg,var(--accent),#6f9bff);color:white;font-weight:800;border-radius:13px;padding:13px 18px;cursor:pointer;margin-top:14px;width:100%;font-size:15px}.primary:disabled{opacity:.5}.result{margin-top:18px;background:#0b1124;border:1px solid #303b5e;border-radius:14px;padding:15px;min-height:64px;white-space:pre-wrap;line-height:1.6;overflow-wrap:anywhere}.result:empty{display:none}.small{font-size:12px;color:var(--muted);line-height:1.55}.demo{color:#ffd58c;background:#392c1a;border:1px solid #74552a;border-radius:12px;padding:12px;margin:16px 0;font-size:12px;line-height:1.5}.foot{text-align:center;color:#8490b1;font-size:12px;margin:24px auto 0;max-width:700px}footer{border-top:1px solid #ffffff12;padding:22px;text-align:center;color:#7f8aac;font-size:12px}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,1fr)}header{padding:13px 16px}.workspace{padding:15px}.hero{margin-bottom:20px}.tool{padding:14px;min-height:120px}.row{flex-direction:column;align-items:stretch;gap:0}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">Z</div><span>Zuriyya AI</span></div><span class="pill">EARLY PROTOTYPE · DEMO MODE</span></header>
+<main>
+<section class="hero"><div class="eyebrow">YOUR EVERYDAY AI ASSISTANT</div><h1>Make your next idea<br><span class="gradient">happen with AI.</span></h1><p>Write, learn, plan and translate from one simple workspace. Designed to grow into a useful assistant for people around the world.</p></section>
+<div class="grid" role="group" aria-label="Choose a tool">
+<button class="tool active" data-tool="write"><span class="emoji">✍️</span><h3>Write anything</h3><p>Emails, posts, letters and ideas</p></button>
+<button class="tool" data-tool="explain"><span class="emoji">🧠</span><h3>Explain simply</h3><p>Understand a topic step by step</p></button>
+<button class="tool" data-tool="plan"><span class="emoji">🗓️</span><h3>Make a plan</h3><p>Turn a goal into clear actions</p></button>
+<button class="tool" data-tool="translate"><span class="emoji">🌍</span><h3>Translate</h3><p>Translate text between languages</p></button>
+<button class="tool" data-tool="ideas"><span class="emoji">💡</span><h3>Find ideas</h3><p>Brainstorm projects and content</p></button>
+<button class="tool" data-tool="summarize"><span class="emoji">📄</span><h3>Summarize</h3><p>Make long text easier to scan</p></button>
+</div>
+<section class="workspace">
+<h2 id="toolTitle">Write anything</h2><p class="hint" id="toolHint">Describe what you want to write and who it is for.</p>
+<label class="fieldlabel" for="prompt">What do you need help with?</label>
+<textarea id="prompt" placeholder="Example: Write a friendly introduction for my small online business..."></textarea>
+<div class="row" id="languageRow" style="display:none"><div><label class="fieldlabel" for="fromLang">From</label><select id="fromLang"><option>English</option><option>Hausa</option><option>French</option><option>Arabic</option><option>Spanish</option><option>Portuguese</option><option>Yoruba</option></select></div><div><label class="fieldlabel" for="toLang">To</label><select id="toLang"><option>Hausa</option><option>English</option><option>French</option><option>Arabic</option><option>Spanish</option><option>Portuguese</option><option>Yoruba</option></select></div></div>
+<button class="primary" id="run">Generate sample result</button>
+<div class="result" id="result" aria-live="polite"></div>
+<p class="small">Prototype note: this file uses sample responses, not a live AI model. It works without an account or API key. The next build step is to connect a real AI service safely through a server-side function; never place a private API key in this HTML file.</p>
+</section>
+<div class="demo"><strong>Free launch plan:</strong> Use this prototype to test the idea with people first. Keep the first version focused, ask users what helps them most, and connect live AI only after you have chosen a safe backend and checked the provider's current free limits and privacy terms.</div>
+<p class="foot">Zuriyya AI is an independent prototype concept. AI-generated answers can be wrong; check important information before relying on it.</p>
+</main><footer>© Zuriyya AI · Built to help people get things done</footer>
+<script>
+const data={
+write:{title:"Write anything",hint:"Describe what you want to write and who it is for.",placeholder:"Example: Write a friendly introduction for my small online business...",label:"Generate sample result"},
+explain:{title:"Explain simply",hint:"Enter a topic you want to understand.",placeholder:"Example: Explain compound interest to a beginner...",label:"Explain sample"},
+plan:{title:"Make a plan",hint:"Tell us a goal and your deadline.",placeholder:"Example: Help me learn web design in 30 days...",label:"Create sample plan"},
+translate:{title:"Translate",hint:"Enter text and choose the languages.",placeholder:"Type the text you want translated...",label:"Show translation demo"},
+ideas:{title:"Find ideas",hint:"Tell us your topic, audience or challenge.",placeholder:"Example: Give me ideas for a useful app for students...",label:"Show idea examples"},
+summarize:{title:"Summarize",hint:"Paste the text you want shortened.",placeholder:"Paste an article, notes or a long message...",label:"Show summary demo"}
+};
+let current="write";
+const buttons=[...document.querySelectorAll(".tool")], promptEl=document.querySelector("#prompt"), result=document.querySelector("#result"), run=document.querySelector("#run");
+function choose(t){current=t;buttons.forEach(b=>b.classList.toggle("active",b.dataset.tool===t));document.querySelector("#toolTitle").textContent=data[t].title;document.querySelector("#toolHint").textContent=data[t].hint;promptEl.placeholder=data[t].placeholder;run.textContent=data[t].label;document.querySelector("#languageRow").style.display=t==="translate"?"flex":"none";result.textContent="";}
+buttons.forEach(b=>b.addEventListener("click",()=>choose(b.dataset.tool)));
+run.addEventListener("click",()=>{let v=promptEl.value.trim();if(!v){result.textContent="Please enter a topic or request first.";promptEl.focus();return}
+const samples={
+write:"WRITING STARTER\n\nHere is a simple structure you can adapt:\n\n1. Start with a clear, friendly opening.\n2. Explain the main point in plain language.\n3. Tell the reader what to do next.\n\nYour request: "+v+"\n\nThis is a demo response. A connected AI model would generate a tailored draft.",
+explain:"SIMPLE EXPLANATION TEMPLATE\n\n• Main idea: describe the topic in one sentence.\n• How it works: break it into small steps.\n• Example: connect it to an everyday situation.\n• Check your understanding: explain it back in your own words.\n\nTopic: "+v+"\n\nThis sample is a template, not a live AI answer.",
+plan:"YOUR STARTER PLAN\n\n1. Define the exact outcome you want.\n2. Break it into small tasks you can finish each day.\n3. Set a realistic deadline for each task.\n4. Review progress every week and adjust.\n5. Share your progress with someone who can give feedback.\n\nGoal: "+v+"\n\nA live AI connection can make this plan specific to your goal.",
+translate:"TRANSLATION DEMO\n\nSelected direction: "+document.querySelector("#fromLang").value+" → "+document.querySelector("#toLang").value+"\n\nText: "+v+"\n\nNo real translation was performed in this prototype. Connect a translation/AI service to enable accurate translations.",
+ideas:"IDEA STARTER\n\n1. Identify one specific person with a repeated problem.\n2. List three ways to solve that problem simply.\n3. Test the smallest solution with five real people.\n4. Improve based on what they actually use.\n5. Consider charging only after the solution provides value.\n\nYour topic: "+v+"\n\nA live AI connection can generate tailored ideas.",
+summarize:"SUMMARY TEMPLATE\n\n• Main point: identify the central message.\n• Important details: keep only the most useful facts.\n• Next action: note what the reader should do or remember.\n\nText supplied: "+v+"\n\nThis demo does not analyse or summarize your pasted text yet."
+};
+result.textContent=samples[current];});
+</script>
+</body></html>
